@@ -1,4 +1,12 @@
+import React from 'react';
+import renderer from 'react-test-renderer';
+import App from './App';
 
-test('make sure jest works', () => {
-  expect(true).toBe(true);
+describe('<App />', () => {
+
+  test('renders correctly', () => {
+    const tree = renderer.create(<App/>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
 });
