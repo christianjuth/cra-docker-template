@@ -21,12 +21,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "typescript": "tsc --noEmit",
     "docker": "docker-compose up -d --build"
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn build"
+      "pre-commit": "yarn typescript && yarn test --watchAll=false --coverage"
     }
   },
   "eslintConfig": {
